@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Галерея изображений</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+    button {
+        padding: 1vw 2vw; /* отступы в 2% и 4% от ширины вьюпорта */
+        font-size: 2vw; /* размер шрифта в 2% от ширины вьюпорта */
+        margin: 1vh; /* отступы по вертикали в 2% от высоты вьюпорта */
+        cursor: pointer;
+        border: 2px solid #3498db;
+        border-radius: 5px;
+        background-color: #3498db;
+        color: #200e0e;
+        transition: background-color 0.3s;
+        font-weight: bold;
+}
+        
+        
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        .image-group {
+            display: none;
+        }
+
+        .image-group.active {
+            display: block;
+        }
+
+        img {
+            width: 90vw; /* 50% ширины вьюпорта */
+            height: 90vh; /* 50% высоты вьюпорта */
+            margin: 20px auto; /* Центрирование изображения по горизонтали и вертикали */
+            display: none;
+        }
+
+        .active img {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button onclick="changeGroup(1)">EP</button>
+    <button onclick="changeGroup(2)">MP</button>
+    <button onclick="changeGroup(3)">CO</button>
+    <button onclick="changeGroup(4)">BTN</button>
+    <button onclick="changeGroup(5)">SB</button>
+    <button onclick="changeGroup(6)">BB</button>
+
+    <div class="image-group" id="group1">
+        <button onclick="showImage(1, 1)">3bet-push</button>
+        <button onclick="showImage(2, 1)">open</button>
+        <button onclick="showImage(3, 1)">push-fold</button>
+        <button onclick="showImage(3, 1)">vs-3bet</button>
+
+        <img id="image1_1" src="/EP/3bet_push.png" alt="Группа 1, Картинка 1">
+        <img id="image2_1" src="/EP/open.png" alt="Группа 1, Картинка 2">
+        <img id="image3_1" src="/EP/push_fold.png" alt="Группа 1, Картинка 3">
+        <img id="image4_1" src="/EP/vs_3bet.png" alt="Группа 1, Картинка 4">
+    </div>
+
+    <div class="image-group" id="group2">
+        <button onclick="showImage(1, 2)">3bet-push</button>
+        <button onclick="showImage(2, 2)">open</button>
+        <button onclick="showImage(3, 2)">open-hj</button>
+        <button onclick="showImage(4, 2)">push-fold</button>
+        <button onclick="showImage(5, 2)">vs-3bet-hj</button>
+        <button onclick="showImage(6, 2)">vs-3bet</button>
+
+        <img id="image1_2" src="/MP/3bet_push.png" alt="Группа 2, Картинка 1">
+        <img id="image2_2" src="/MP/open.png" alt="Группа 2, Картинка 2">
+        <img id="image3_2" src="/MP/open_hj.png" alt="Группа 2, Картинка 3">
+        <img id="image4_2" src="/MP/push_fold.png" alt="Группа 2, Картинка 4">
+        <img id="image5_2" src="/MP/vs_3bet.png" alt="Группа 2, Картинка 5">
+        <img id="image6_2" src="/MP/vs_3bet_hj.png" alt="Группа 2, Картинка 6">
+    </div>
+
+    <div class="image-group" id="group3">
+        <button onclick="showImage(1, 3)">3bet-push</button>
+        <button onclick="showImage(2, 3)">coldcall</button>
+        <button onclick="showImage(3, 3)">isolate</button>
+        <button onclick="showImage(4, 3)">open</button>
+        <button onclick="showImage(5, 3)">push-fold</button>
+        <button onclick="showImage(6, 3)">vs-3bet</button>
+
+        <img id="image1_3" src="/CO/3bet_push.png" alt="Группа 3, Картинка 1">
+        <img id="image2_3" src="/CO/coldcall.png" alt="Группа 3, Картинка 2">
+        <img id="image3_3" src="/CO/isolate.png" alt="Группа 3, Картинка 3">
+        <img id="image4_3" src="/CO/open.png" alt="Группа 3, Картинка 4">
+        <img id="image5_3" src="/CO/push_fold.png" alt="Группа 3, Картинка 5">
+        <img id="image6_3" src="/CO/vs_3bet.png" alt="Группа 3, Картинка 6">
+    </div>
+
+    <div class="image-group" id="group4">
+        <button onclick="showImage(1, 4)">3bet-push-vs-co</button>
+        <button onclick="showImage(2, 4)">3bet-push-vs-ep</button>
+        <button onclick="showImage(3, 4)">3bet-vs-co</button>
+        <button onclick="showImage(4, 4)">coldcall-vs-ep</button>
+        <button onclick="showImage(5, 4)">coldcall-vs-co</button>
+        <button onclick="showImage(6, 4)">isolate</button>
+        <button onclick="showImage(7, 4)">open</button>
+        <button onclick="showImage(8, 4)">push-fold</button>
+        <button onclick="showImage(9, 4)">vs-3bet</button>
+    
+        <img id="image1_4" src="/BTN/3bet_push_vs_co.png" alt="Группа 4, Картинка 1">
+        <img id="image2_4" src="/BTN/3bet_push_vs_ep.png" alt="Группа 4, Картинка 2">
+        <img id="image3_4" src="/BTN/3bet_vs_co.png" alt="Группа 4, Картинка 3">
+        <img id="image4_4" src="/BTN/coldcoll_vs_ep.png" alt="Группа 4, Картинка 4">
+        <img id="image5_4" src="/BTN/colddcall_vs_co.png" alt="Группа 4, Картинка 5">
+        <img id="image6_4" src="/BTN/isolate.png" alt="Группа 4, Картинка 6">
+        <img id="image7_4" src="/BTN/open.png" alt="Группа 4, Картинка 7">
+        <img id="image8_4" src="/BTN/push_fold.png" alt="Группа 4, Картинка 8">
+        <img id="image9_4" src="/BTN/vs_3bet.png" alt="Группа 4, Картинка 9">
+    </div>
+
+    <div class="image-group" id="group5">
+        <button onclick="showImage(1, 5)">3bet-push-vs-btn</button>
+        <button onclick="showImage(2, 5)">3bet-push-vs-ep</button>
+        <button onclick="showImage(3, 5)">coldcall</button>
+        <button onclick="showImage(4, 5)">isolate</button>
+        <button onclick="showImage(5, 5)">open</button>
+        <button onclick="showImage(6, 5)">push-fold</button>
+        <button onclick="showImage(7, 5)">sb-vs-3bet-bb</button>
+    
+        <img id="image1_5" src="/SB/3bet_push_vs_btn.png" alt="Группа 5, Картинка 1">
+        <img id="image2_5" src="/SB/3bet_push_vs_ep.png" alt="Группа 5, Картинка 2">
+        <img id="image3_5" src="/SB/coldcall_sb.png" alt="Группа 5, Картинка 3">
+        <img id="image4_5" src="/SB/isolate.png" alt="Группа 5, Картинка 4">
+        <img id="image5_5" src="/SB/open_sb.jpg" alt="Группа 5, Картинка 5">
+        <img id="image6_5" src="/SB/push_fold.png" alt="Группа 5, Картинка 6">
+        <img id="image7_5" src="/SB/sb_vs_3bet_bb.jpg" alt="Группа 5, Картинка 7">
+    </div>
+
+    <div class="image-group" id="group6">
+        <button onclick="showImage(1, 6)">3bet-push-vs-btn</button>
+        <button onclick="showImage(2, 6)">3bet-push-vs-ep</button>
+        <button onclick="showImage(3, 6)">def-vs-sb</button>
+        <button onclick="showImage(4, 6)">rase-vs-limp</button>
+        <button onclick="showImage(5, 6)">isolate</button>
+        <button onclick="showImage(6, 6)">push-fold-vs-btn</button>
+        <button onclick="showImage(7, 6)">push-fold-vs-utg</button>
+        <button onclick="showImage(8, 6)">call-vs-ep</button>
+        <button onclick="showImage(9, 6)">call-vs-mp</button>
+       <button onclick="showImage(10, 6)">call-vs-late-pos</button>
+    
+        <img id="image1_6" src="/BB/3bet_push_vs_btn.png" alt="Группа 6, Картинка 1">
+        <img id="image2_6" src="/BB/3bet_push_vs_ep.png" alt="Группа 6, Картинка 2">
+        <img id="image3_6" src="/BB/bb_def_vs_sb.jpg" alt="Группа 6, Картинка 3">
+        <img id="image4_6" src="/BB/bb_rase_vs limp.jpg" alt="Группа 6, Картинка 4">
+        <img id="image5_6" src="/BB/isolate.png" alt="Группа 6, Картинка 5">
+        <img id="image6_6" src="/BB/push_fold_vs_btn.png" alt="Группа 6, Картинка 6">
+        <img id="image7_6" src="/BB/push_fold_vs_utg.png" alt="Группа 6, Картинка 7">
+        <img id="image8_6" src="/BB/game_on_bb/bb_vs_ep.png" alt="Группа 6, Картинка 7">
+        <img id="image9_6" src="/BB/game_on_bb/bb_vs_mp.png" alt="Группа 6, Картинка 7">
+       <img id="image10_6" src="/BB/game_on_bb/bb_vs_latepos.png" alt="Группа 6, Картинка 7">
+    </div>
+
+    <script>
+        function showImage(imageNumber, groupNumber) {
+            // Скрываем все изображения в текущей группе
+            document.querySelectorAll('.image-group.active img').forEach(img => img.style.display = 'none');
+
+            // Показываем выбранное изображение в текущей группе
+            document.getElementById('image' + imageNumber + '_' + groupNumber).style.display = 'block';
+        }
+
+        function changeGroup(groupNumber) {
+            // Скрываем все группы
+            document.querySelectorAll('.image-group').forEach(group => group.classList.remove('active'));
+
+            // Скрываем все изображения во всех группах
+            document.querySelectorAll('.image-group img').forEach(img => img.style.display = 'none');
+
+            // Показываем выбранную группу
+            document.getElementById('group' + groupNumber).classList.add('active');
+        }
+    </script>
+
+</body>
+
+</html>
